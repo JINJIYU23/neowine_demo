@@ -13,6 +13,7 @@ export default function Home() {
           지능형 전장감시 유무인복합체계
         </h1>
       </header>
+      {/* 레이아웃 */}
       <main className="grid grid-cols-12">
         <div className="col-span-2">
           <DetectionInfo />
