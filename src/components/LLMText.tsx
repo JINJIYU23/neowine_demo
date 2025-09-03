@@ -1,11 +1,14 @@
 import React from "react";
+import Report from "./Report";
+import Recommendation from "./Recommendation";
+import ExpectedRoute from "./ExpectedRoute";
 
 export default function LLMText() {
   return (
-    <div className="mx-5 rounded-[10px] bg-[var(--box-color)] h-[200px] max-w-full">
-      <h1 className="text-[24px] font-semibold text-center p-[15px]">
-        LLM Text
-      </h1>
+    <div className="grid grid-cols-3 px-[20px] mb-[20px] gap-2">
+      <Report />
+      <Recommendation />
+      <ExpectedRoute />
     </div>
   );
 }
