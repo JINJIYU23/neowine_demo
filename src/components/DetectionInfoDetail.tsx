@@ -1,4 +1,5 @@
 import React from "react";
+import DetectionLevelButton from "./DetectionButton";
 
 export default function DetectionInfoDetail() {
   return (
@@ -10,11 +11,7 @@ export default function DetectionInfoDetail() {
           </h1>
         </div>
         <div className="flex items-center gap-0">
-          <button className="bg-[var(--red-color)] rounded-[10px] p-2 flex items-center justify-center">
-            <span className="relative top-[1px] text-[var(--white-bg)]">
-              HIGH
-            </span>
-          </button>
+          <DetectionLevelButton level="LOW" color="var(--blue-color)" />
           <div className="p-1 ml-[5px]">
             <p>좌표: 33.2456, 127.8365</p>
             <p>25.08.24 14시 28분 49초</p>
@@ -28,11 +25,7 @@ export default function DetectionInfoDetail() {
           </h1>
         </div>
         <div className="flex items-center gap-0">
-          <button className="bg-[var(--orange-color)] rounded-[10px] p-2 flex items-center justify-center">
-            <span className="relative top-[1px] text-[var(--white-bg)]">
-              MEDI
-            </span>
-          </button>
+          <DetectionLevelButton level="MEDI" color="var(--orange-color)" />
           <div className="p-1 ml-[5px]">
             <p>좌표: 33.2456, 127.8365</p>
             <p>25.08.24 14시 28분 49초</p>
@@ -46,11 +39,7 @@ export default function DetectionInfoDetail() {
           </h1>
         </div>
         <div className="flex items-center gap-0">
-          <button className="bg-[var(--blue-color)] rounded-[10px] p-2 flex items-center justify-center">
-            <span className="relative top-[1px] text-[var(--white-bg)]">
-              LOW
-            </span>
-          </button>
+          <DetectionLevelButton level="HIGH" color="var(--red-color)" />
           <div className="p-1 ml-[5px]">
             <p>좌표: 33.2456, 127.8365</p>
             <p>25.08.24 14시 28분 49초</p>
