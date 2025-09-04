@@ -3,7 +3,7 @@ import DetectionInfoDetail from "./DetectionInfoDetail";
 
 export default function DetectionInfo() {
   return (
-    <div className="ml-5 rounded-[10px] bg-[var(--box-color)] h-[600px]">
+    <div className="ml-5 rounded-[10px] bg-[var(--box-color)] h-[600px] shadow-md">
       <h2 className="text-[24px] font-semibold text-center pt-[15px]">
         Detection Info
       </h2>
