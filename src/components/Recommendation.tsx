@@ -13,7 +13,7 @@ export default function Recommendation() {
       const fullText = currentAnalysis.recommendations;
       setDisplayedText("");
       setIsTyping(true);
-      
+
       let currentIndex = 0;
       const typingInterval = setInterval(() => {
         if (currentIndex < fullText.length) {
@@ -30,18 +30,16 @@ export default function Recommendation() {
   }, [currentAnalysis?.recommendations]);
 
   return (
-    <div className="rounded-[10px] bg-[#FF2E2E]/20 h-min-full shadow-md p-2">
-      <h1 className="font-semibold text-[20px] p-1 text-[var(--red-color)]">
+    <div className="rounded-[10px] bg-[var(--box-color)] h-min-full shadow-md p-2">
+      <h1 className="font-semibold text-[20px] p-1 text-[var(--black-color)]">
         권고 사항
       </h1>
-      <hr className="border-[var(--red-color)]" />
+      <hr className="border-[var(--white-bg)]" />
       <div className="py-[10px]">
         {loading ? (
-          <p className="text-[var(--black-color)] text-center">
-            AI 분석 중...
-          </p>
+          <p className="text-[var(--black-color)] text-center">AI 분석 중...</p>
         ) : error ? (
-          <p className="text-red-500 text-center">
+          <p className="text-[var(--red-color)] text-center">
             분석 오류: {error}
           </p>
         ) : currentAnalysis ? (

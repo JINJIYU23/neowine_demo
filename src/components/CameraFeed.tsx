@@ -53,7 +53,7 @@ export default function CameraFeed() {
       {/* 비디오 컨테이너 (크기 축소) */}
       <div
         ref={containerRef}
-        className="relative mb-[20px] bg-black rounded-[10px] overflow-hidden flex justify-center"
+        className="relative mb-[20px] bg-black shadow-md rounded-[10px] overflow-hidden flex justify-center"
       >
         {/* Hailo 서버에서 실시간 영상 수신 */}
         {frameWithDetection ? (
