@@ -76,8 +76,8 @@ export default function CameraFeed() {
       </div>
 
       {/* 고정된 2x2 그리드 형식으로 객체 수 표시 */}
-      <div className="mb-4">
-        <div className="grid grid-cols-2 gap-4">
+      <div className="mb-[20px]">
+        <div className="grid grid-cols-2 gap-[20px]">
           {/* Ally Tank */}
           <div className="bg-[#BED0FF]/50 shadow-md border-[var(--stroke-color)] rounded-[10px] p-3 text-center">
             <div className="text-[20px] font-medium text-[var(--blue-color)]">

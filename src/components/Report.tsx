@@ -13,7 +13,7 @@ export default function Report() {
       const fullText = currentAnalysis.situation_analysis;
       setDisplayedText("");
       setIsTyping(true);
-      
+
       let currentIndex = 0;
       const typingInterval = setInterval(() => {
         if (currentIndex < fullText.length) {
@@ -30,18 +30,16 @@ export default function Report() {
   }, [currentAnalysis?.situation_analysis]);
 
   return (
-    <div className="rounded-[10px] bg-[#BED0FF]/50 h-min-full shadow-md p-2">
-      <h1 className="font-semibold text-[20px] p-1 text-[var(--blue-color)]">
+    <div className="rounded-[10px] bg-[var(--box-color)] h-min-full shadow-md p-2">
+      <h1 className="font-semibold text-[20px] p-1 text-[var(--black-color)]">
         상황 분석 리포트
       </h1>
-      <hr className="border-[var(--blue-color)]" />
+      <hr className="border-[var(--white-bg)]" />
       <div className="py-[10px]">
         {loading ? (
-          <p className="text-[var(--black-color)] text-center">
-            AI 분석 중...
-          </p>
+          <p className="text-[var(--black-color)] text-center">AI 분석 중...</p>
         ) : error ? (
-          <p className="text-red-500 text-center">
+          <p className="text-[var(--red-color)] text-center">
             분석 오류: {error}
           </p>
         ) : currentAnalysis ? (
