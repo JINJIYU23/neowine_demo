@@ -57,7 +57,7 @@ export default function CameraFeed() {
       >
         {/* Hailo 서버에서 실시간 영상 수신 */}
         {frameWithDetection ? (
-          <Image
+          <img
             src={`data:image/jpeg;base64,${frameWithDetection.frame}`}
             alt="Real-time camera feed"
             className="max-w-full max-h-[400px] object-contain"

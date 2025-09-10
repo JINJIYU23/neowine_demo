@@ -3,8 +3,8 @@
 import CameraFeed from "@/components/CameraFeed";
 import DetectionInfo from "@/components/DetectionInfo";
 import LLMText from "@/components/LLMText";
+import LLMChat from "@/components/LLMChat";
 import LLMTextHistory from "@/components/LLMTextHistory";
-import Map from "@/components/Map";
 import Weather from "@/components/Weather";
 import { LLMProvider } from "@/contexts/LLMContext";
 
@@ -29,11 +29,11 @@ export default function ClientDashboard() {
 
           <div className="col-span-4 flex flex-col">
             <Weather />
-            <Map />
+            <LLMTextHistory />
           </div>
 
           <div className="col-span-2">
-            <LLMTextHistory />
+            <LLMChat />
           </div>
 
           <div className="col-span-12">

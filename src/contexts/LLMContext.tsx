@@ -1,13 +1,16 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import type { LLMAnalysis, LLMWebSocketMessage } from '../types/llmType';
+import type { LLMAnalysis, LLMWebSocketMessage, ChatMessage, ChatWebSocketMessage } from '../types/llmType';
 
 interface LLMContextType {
   currentAnalysis: LLMAnalysis | null;
   loading: boolean;
   error: string | null;
   isConnected: boolean;
+  chatMessages: ChatMessage[];
+  addChatMessage: (message: ChatMessage) => void;
+  clearChatMessages: () => void;
 }
 
 const LLMContext = createContext<LLMContextType | undefined>(undefined);
@@ -21,6 +24,16 @@ export function LLMProvider({ children }: LLMProviderProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isConnected, setIsConnected] = useState(false);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+
+  // 채팅 메시지 관리 함수들
+  const addChatMessage = (message: ChatMessage) => {
+    setChatMessages(prev => [...prev, message]);
+  };
+
+  const clearChatMessages = () => {
+    setChatMessages([]);
+  };
 
   // 최신 LLM 분석 결과 가져오기
   const fetchLatestAnalysis = async () => {
@@ -69,6 +82,18 @@ export function LLMProvider({ children }: LLMProviderProps) {
           
           setCurrentAnalysis(newAnalysis);
           setLoading(false);
+        } else if (message.type === 'chat_response') {
+          const chatMessage = message as ChatWebSocketMessage;
+          
+          // 새로운 채팅 응답 추가
+          const newChatMessage: ChatMessage = {
+            id: chatMessage.chat_id,
+            role: 'assistant',
+            content: chatMessage.data.message,
+            timestamp: chatMessage.data.timestamp
+          };
+          
+          addChatMessage(newChatMessage);
         }
       } catch (error) {
         console.error('WebSocket 메시지 파싱 오류:', error);
@@ -99,7 +124,10 @@ export function LLMProvider({ children }: LLMProviderProps) {
       currentAnalysis,
       loading,
       error,
-      isConnected
+      isConnected,
+      chatMessages,
+      addChatMessage,
+      clearChatMessages
     }}>
       {children}
     </LLMContext.Provider>

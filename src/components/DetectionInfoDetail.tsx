@@ -23,8 +23,8 @@ export default function DetectionInfoDetail({
     const lowerClass = String(className || '').toLowerCase();
     if (lowerClass.includes('enemy tank')) return 'text-[var(--red-color)]';
     if (lowerClass.includes('enemy')) return 'text-[#FFF200]';
-    if (lowerClass.includes('ally')) return 'text-[#FFF200]';
-    return 'text-[#FFF200]'; // 기본값
+    if (lowerClass.includes('ally')) return 'text-[#FFFFFF]';
+    return 'text-[#FFFFFF]'; // 기본값
   };
 
   return (
