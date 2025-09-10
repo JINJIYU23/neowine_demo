@@ -42,9 +42,9 @@ export default function LLMChat() {
         },
         body: JSON.stringify({
           message: userMessage.content,
-          context: currentAnalysis ? 
-            `현재 상황: ${currentAnalysis.situation_analysis}\n권고사항: ${currentAnalysis.recommendations}\n예상경로: ${currentAnalysis.expected_route}` 
-            : undefined
+          context: currentAnalysis
+            ? `현재 상황: ${currentAnalysis.situation_analysis}\n권고사항: ${currentAnalysis.recommendations}\n예상경로: ${currentAnalysis.expected_route}`
+            : undefined,
         }),
       });
 
@@ -65,7 +65,8 @@ export default function LLMChat() {
       const errorMessage: ChatMessage = {
         id: `error_${Date.now()}`,
         role: "assistant",
-        content: "죄송합니다. 응답을 생성하는 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
+        content:
+          "죄송합니다. 응답을 생성하는 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
         timestamp: new Date().toISOString(),
       };
       addChatMessage(errorMessage);
@@ -84,53 +85,57 @@ export default function LLMChat() {
 
   // 메시지 포맷팅
   const formatMessage = (content: string) => {
-    return content.split('\n').map((line, index) => (
+    return content.split("\n").map((line, index) => (
       <span key={index}>
         {line}
-        {index < content.split('\n').length - 1 && <br />}
+        {index < content.split("\n").length - 1 && <br />}
       </span>
     ));
   };
 
   return (
     <div className="mb-5 mx-5 rounded-[10px] bg-[var(--box-color)] h-[600px] shadow-md flex flex-col">
-      <h2 className="text-[24px] font-semibold text-center p-[15px] border-b border-gray-200">
-        LLM Chat
-      </h2>
-
       {/* 메시지 목록 */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {chatMessages.length === 0 && (
           <div className="text-center text-gray-500 mt-8">
             <p>LLM과 대화를 시작해보세요!</p>
-            <p className="text-sm mt-2">현재 전장 상황에 대해 질문하거나 조언을 구할 수 있습니다.</p>
+            <p className="text-sm mt-2">
+              현재 전장 상황에 대해 질문하거나 조언을 구할 수 있습니다.
+            </p>
           </div>
         )}
-        
+
         {chatMessages.map((message) => (
           <div
             key={message.id}
-            className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+            className={`flex ${
+              message.role === "user" ? "justify-end" : "justify-start"
+            }`}
           >
             <div
-              className={`max-w-[80%] p-3 rounded-lg ${
+              className={`max-w-[80%] p-3 rounded-[10px] ${
                 message.role === "user"
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-100 text-gray-800"
+                  ? "bg-[var(--blue-color)] text-[var(--white-bg)]"
+                  : "bg-gray-100 text-[var(--black-color)]"
               }`}
             >
-              <div className="text-sm">
+              <div className="text-[14px]">
                 {formatMessage(message.content)}
               </div>
-              <div className={`text-xs mt-1 ${
-                message.role === "user" ? "text-blue-100" : "text-gray-500"
-              }`}>
+              <div
+                className={`text-[12px] mt-1 ${
+                  message.role === "user"
+                    ? "text-[var(--white-bg)]"
+                    : "text-gray-500"
+                }`}
+              >
                 {new Date(message.timestamp).toLocaleTimeString()}
               </div>
             </div>
           </div>
         ))}
-        
+
         {isLoading && (
           <div className="flex justify-start">
             <div className="bg-gray-100 text-gray-800 p-3 rounded-lg">
@@ -141,26 +146,26 @@ export default function LLMChat() {
             </div>
           </div>
         )}
-        
+
         <div ref={messagesEndRef} />
       </div>
 
       {/* 입력 영역 */}
-      <div className="border-t border-gray-200 p-4">
+      <div className="p-4">
         <div className="flex space-x-2">
           <textarea
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="LLM에게 질문하세요..."
-            className="flex-1 p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="LLM에게 질문하세요."
+            className="flex-1 p-3 border border-gray-400 rounded-[10px] resize-none focus:outline-none focus:border-[var(--blue-color)]"
             rows={2}
             disabled={isLoading}
           />
           <button
             onClick={sendMessage}
             disabled={!inputMessage.trim() || isLoading}
-            className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+            className="px-6 py-3 bg-[var(--blue-color)] text-white rounded-[10px] hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
           >
             전송
           </button>

@@ -30,25 +30,25 @@ export default function Report() {
   }, [currentAnalysis?.situation_analysis]);
 
   return (
-    <div className="rounded-[10px] bg-[var(--box-color)] h-min-full shadow-md p-2">
-      <h1 className="font-semibold text-[20px] p-1 text-[var(--black-color)]">
+    <div className="rounded-[10px] bg-[var(--box-color)] min-h-full shadow-md p-2">
+      <h1 className="font-semibold text-[20px] p-1 text-[var(--blue-color)]">
         상황 분석 리포트
       </h1>
-      <hr className="border-[var(--white-bg)]" />
+      <hr className="border-[var(--blue-color)]" />
       <div className="py-[10px]">
         {loading ? (
-          <p className="text-[var(--black-color)] text-center">AI 분석 중...</p>
+          <p className="text-[var(--blue-color)] text-center">AI 분석 중...</p>
         ) : error ? (
           <p className="text-[var(--red-color)] text-center">
             분석 오류: {error}
           </p>
         ) : currentAnalysis ? (
-          <p className="text-[var(--black-color)]">
+          <p className="text-[var(--blue-color)]">
             {displayedText}
             {isTyping && <span className="animate-pulse">|</span>}
           </p>
         ) : (
-          <p className="text-[var(--black-color)] text-center">
+          <p className="text-[var(--blue-color)] text-center">
             분석 데이터가 없습니다
           </p>
         )}

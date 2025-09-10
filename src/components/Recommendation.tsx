@@ -30,25 +30,25 @@ export default function Recommendation() {
   }, [currentAnalysis?.recommendations]);
 
   return (
-    <div className="rounded-[10px] bg-[var(--box-color)] h-min-full shadow-md p-2">
-      <h1 className="font-semibold text-[20px] p-1 text-[var(--black-color)]">
+    <div className="rounded-[10px] bg-[var(--box-color)] min-h-full shadow-md p-2">
+      <h1 className="font-semibold text-[20px] p-1 text-[var(--red-color)]">
         권고 사항
       </h1>
-      <hr className="border-[var(--white-bg)]" />
+      <hr className="border-[var(--red-color)]" />
       <div className="py-[10px]">
         {loading ? (
-          <p className="text-[var(--black-color)] text-center">AI 분석 중...</p>
+          <p className="text-[var(--red-color)] text-center">AI 분석 중...</p>
         ) : error ? (
           <p className="text-[var(--red-color)] text-center">
             분석 오류: {error}
           </p>
         ) : currentAnalysis ? (
-          <p className="text-[var(--black-color)]">
+          <p className="text-[var(--red-color)]">
             {displayedText}
             {isTyping && <span className="animate-pulse">|</span>}
           </p>
         ) : (
-          <p className="text-[var(--black-color)] text-center">
+          <p className="text-[var(--red-color)] text-center">
             분석 데이터가 없습니다
           </p>
         )}

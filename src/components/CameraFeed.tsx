@@ -79,41 +79,41 @@ export default function CameraFeed() {
       <div className="mb-[20px]">
         <div className="grid grid-cols-2 gap-[20px]">
           {/* Ally Tank */}
-          <div className="bg-[#BED0FF]/50 shadow-md border-[var(--stroke-color)] rounded-[10px] p-3 text-center">
+          <div className="bg-[var(--box-color)] shadow-md border-[var(--stroke-color)] rounded-[10px] p-3 text-center">
             <div className="text-[20px] font-medium text-[var(--blue-color)]">
-              Ally Tank
+              ALLY TANK
             </div>
-            <div className="text-[20px] text-[var(--black-color)] font-bold">
+            <div className="text-[20px] text-[var(--blue-color)] font-bold">
               {classCounts["ally tank"] || 0}
             </div>
           </div>
 
           {/* Ally */}
-          <div className="bg-[#BED0FF]/50 shadow-md border-[var(--stroke-color)] rounded-[10px] p-3 text-center">
+          <div className="bg-[var(--box-color)] shadow-md border-[var(--stroke-color)] rounded-[10px] p-3 text-center">
             <div className="text-[20px] font-medium text-[var(--blue-color)]">
-              Ally
+              ALLY
             </div>
-            <div className="text-[20px] text-[var(--black-color)] font-bold">
+            <div className="text-[20px] text-[var(--blue-color)] font-bold">
               {classCounts["ally"] || 0}
             </div>
           </div>
 
           {/* Enemy Tank */}
-          <div className="bg-[#FF2E2E]/20 shadow-md border-[var(--stroke-color)] rounded-[10px] p-3 text-center">
+          <div className="bg-[var(--box-color)] shadow-md border-[var(--stroke-color)] rounded-[10px] p-3 text-center">
             <div className="text-[20px] font-medium text-[var(--red-color)]">
-              Enemy Tank
+              ENEMY TANK
             </div>
-            <div className="text-[20px] text-[var(--black-color)] font-bold">
+            <div className="text-[20px] text-[var(--red-color)] font-bold">
               {classCounts["enemy tank"] || 0}
             </div>
           </div>
 
           {/* Enemy */}
-          <div className="bg-[#FF2E2E]/20 shadow-md border-[var(--stroke-color)] rounded-[10px] p-3 text-center">
+          <div className="bg-[var(--box-color)] shadow-md border-[var(--stroke-color)] rounded-[10px] p-3 text-center">
             <div className="text-[20px] font-medium text-[var(--red-color)]">
-              Enemy
+              ENEMY
             </div>
-            <div className="text-[20px] text-[var(--black-color)] font-bold">
+            <div className="text-[20px] text-[var(--red-color)] font-bold">
               {classCounts["enemy"] || 0}
             </div>
           </div>
