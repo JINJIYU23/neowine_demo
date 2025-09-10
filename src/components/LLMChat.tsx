@@ -96,7 +96,7 @@ export default function LLMChat() {
   return (
     <div className="mb-5 mx-5 rounded-[10px] bg-[var(--box-color)] h-[600px] shadow-md flex flex-col">
       {/* 메시지 목록 */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 hide-scrollbar">
         {chatMessages.length === 0 && (
           <div className="text-center text-gray-500 mt-8">
             <p>LLM과 대화를 시작해보세요!</p>

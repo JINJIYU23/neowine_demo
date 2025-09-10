@@ -150,7 +150,7 @@ export default function DetectionInfo() {
           <div className="text-gray-500">감지된 객체가 없습니다.</div>
         </div>
       ) : (
-        <ul className="max-h-[500px] overflow-y-auto">
+        <ul className="max-h-[500px] overflow-y-auto hide-scrollbar">
           {detections.map((detection) => {
             const riskInfo = getRiskLevel(detection.class_name);
             return (

@@ -27,12 +27,13 @@ body {
   box-sizing: border-box;
 }
 
-div {
+/* 스크롤바 숨김 유틸리티 클래스 */
+.hide-scrollbar {
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;
 }
 
-div::-webkit-scrollbar {
+.hide-scrollbar::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }

@@ -31,26 +31,22 @@ export default function Recommendation() {
 
   return (
     <div className="rounded-[10px] bg-[var(--box-color)] min-h-full shadow-md p-2">
-      <h1 className="font-semibold text-[20px] p-1 text-[var(--red-color)]">
-        권고 사항
-      </h1>
-      <hr className="border-[var(--red-color)]" />
+      <h1 className="font-semibold text-[20px] p-1 text-gray-700">권고 사항</h1>
+      <hr className="border-gray-700" />
       <div className="py-[10px]">
         {loading ? (
-          <p className="text-[var(--red-color)] text-center">AI 분석 중...</p>
+          <p className="text-gray-700 text-center">AI 분석 중...</p>
         ) : error ? (
           <p className="text-[var(--red-color)] text-center">
             분석 오류: {error}
           </p>
         ) : currentAnalysis ? (
-          <p className="text-[var(--red-color)]">
+          <p className="text-gray-700">
             {displayedText}
             {isTyping && <span className="animate-pulse">|</span>}
           </p>
         ) : (
-          <p className="text-[var(--red-color)] text-center">
-            분석 데이터가 없습니다
-          </p>
+          <p className="text-gray-700 text-center">분석 데이터가 없습니다</p>
         )}
       </div>
     </div>
